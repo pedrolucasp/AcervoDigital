@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <head>
+        <title>Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+                <!--jQuery-->
+        <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+
+        <!-- Bootstrap Javascript -->
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"></link>
+        
+        <!--Login CSS--> 
+        <link rel="stylesheet" href="css/login.css"></link>
+
+
+    </head>
+    <body>
+        <div>
+            <div class="container">
+            <h:form class="form-signin"  id="loginForm">
+                <h:outputLabel value="Login: "></h:outputLabel>
+                <h:inputText p:placeholder="Email" class="form-control" p:type="email" value="#{usuarioMB.usuario.email}"></h:inputText>
+                <br/>
+                <h:outputLabel value="Senha: "> </h:outputLabel>
+                <h:inputSecret p:placeholder="Password" class="form-control" value="#{usuarioMB.usuario.senha}"></h:inputSecret>
+                <br />
+                <h:commandButton value="Logar" class="btn btn-primary btn-lg btn-block" action="#{usuarioMB.login()}" ></h:commandButton>
+                <br /><br />
+                <h:link class="text-center" outcome="cadastro.xhtml" value="Não possui uma conta? Registre-se"></h:link>
+                
+            </h:form>
+            
+           </div>  <!--container-->
+        </div>
+    </body>
+</html>

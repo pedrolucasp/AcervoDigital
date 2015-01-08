@@ -1,0 +1,67 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 03/12/2014, 19:08:35
+    Author     : Rovena Ramos
+    Description: Esse arquivo é mais para formulários em geral
+                 No caso, ele é meio padrão, usando cores normais
+                 Difere do Login.css por que ele usa uma 'chamação' na página
+*/
+
+
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #ccc;
+
+}
+
+.img-show{
+
+position: center;
+align: center;
+width: 375px; 
+height: auto; 
+    
+-webkit-box-shadow: 0px 3px 2px 0px rgba(50, 50, 50, 0.58);
+-moz-box-shadow:    0px 3px 2px 0px rgba(50, 50, 50, 0.58);
+box-shadow:         0px 3px 2px 0px rgba(50, 50, 50, 0.58);
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

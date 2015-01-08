@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+    <meta charset="utf-8"></meta>
+    <h:head>
+        <title>ACD - v2 </title>
+
+        <!--jQuery-->
+        <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+
+        <!-- Bootstrap Javascript -->
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"></link>
+
+        <style>
+            
+            body {
+  padding-top: 50px;
+  padding-bottom: 20px;
+}
+            
+        </style>
+        
+    </h:head>
+    <h:body>
+        
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Mostrar Navegação</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Acervo Colaborativo Digital </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+                    
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="consultar.xhtml">Buscar um Evento</a></li>
+                <li><a href="../faq.xhtml">FAQ</a></li>
+                
+            </ul>
+            <form action="cadastrarEvento.xhtml" class="navbar-form navbar-right" role="form">          
+            <button type="submit" class="btn btn-success">Cadastrar Evento</button>
+           
+            
+          </form>
+            
+            
+            <p class="navbar-text navbar-right">Logado como <strong> #{session.getAttribute("nome")} </strong></p>
+
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+        
+        
+        
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <div class="jumbotron">
+      <div class="container">
+        <h1>Bem vindo!</h1>
+        <p>Esse é o Acervo Digital Colaborativo, gentilmente chamado de <em>ACD</em>.</p>
+        <p>Aqui você poderá fazer o upload de novas fotos e visualizar as que temos aqui no site.</p>
+        <p>Utilize o botão consultar, para pesquisar um evento específico.</p>
+        
+        <div class="alert alert-info" role="alert">            
+            <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span> 
+            <h3>Essa é uma versão <abbr title="Versão não estável ou Versão teste">Beta</abbr></h3>
+                O site que você está vendo, ainda está em construção e em andamento. Tudo aqui é uma versão de teste.  
+                            <s>Coisas podem quebrar... </s>
+        </div>
+        
+        <div class="alert alert-warning" role="alert">
+          <span class="glyphicon glyphicon-flag" aria-hidden="true"></span>
+
+            Se alguma coisa não funcionar como deveria, por favor mande um email para <a class="alert-link" href="mailto:rovis.lima@gmail.com">rovis.lima@gmail.com</a>.
+        
+        </div>
+
+        
+      </div>
+    </div>
+
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        
+          <div class="col-xs-12">
+          
+        <h:dataTable class="table table-hover" value="#{eventoMB.eventos}" var="evento" >
+        
+            
+    		<h:column>
+    			<f:facet name="header">
+                            <h:outputText value="ID"></h:outputText>
+    			</f:facet>
+    				#{evento.id}
+    		</h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Titulo"></h:outputText>
+                </f:facet>
+    				#{evento.titulo}
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Hashtags"></h:outputText>
+                </f:facet>
+    				#{evento.hashtag}
+            </h:column>
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Local"></h:outputText>
+                </f:facet>
+    				#{evento.local}
+            </h:column>
+            
+            
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Imagem"></h:outputText>
+                </f:facet>
+                <h:graphicImage class="img-responsive img-rounded" width="480px" height="auto"  value="/images/#{evento.url_foto}"></h:graphicImage>
+            </h:column>
+        
+        </h:dataTable>
+
+            </div>
+        </div>
+    </div>
+     
+        
+        
+        
+        
+        
+        
+    
+    </h:body>
+</html>
+

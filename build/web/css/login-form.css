@@ -1,0 +1,74 @@
+/* 
+    Created on : 03/11/2014, 18:52:02
+    Author     : Rovena Ramos
+*/
+
+body {
+  width: 100%;
+  height: 100%;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #ccc;
+  background-image: url('../img/mercado.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #ffffff;
+    &:before {
+    content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background-image: linear-gradient(to bottom right,#002f4b,#dc4225);
+		opacity: .6; 
+  }
+  
+}
+
+.img-show{
+
+position: center;
+align: center;
+width: 375px; 
+height: auto; 
+    
+-webkit-box-shadow: 0px 3px 2px 0px rgba(50, 50, 50, 0.58);
+-moz-box-shadow:    0px 3px 2px 0px rgba(50, 50, 50, 0.58);
+box-shadow:         0px 3px 2px 0px rgba(50, 50, 50, 0.58);
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.form-signin .form-signin-heading,
+.form-signin .checkbox {
+  margin-bottom: 10px;
+}
+.form-signin .checkbox {
+  font-weight: normal;
+}
+.form-signin .form-control {
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-signin .form-control:focus {
+  z-index: 2;
+}
+.form-signin input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

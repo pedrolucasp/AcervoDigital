@@ -1,0 +1,141 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/passthrough">
+
+    <head>
+
+        <title>Cadastrar Evento</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        
+                <!--jQuery-->
+        <script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+
+        <!-- Bootstrap Javascript -->
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css"></link>
+
+        <link rel="stylesheet" href="../css/formulario.css"></link>
+        
+        <script src="//cdnjs.cloudflare.com/ajax/libs/holder/2.4.1/holder.js" ></script>
+        
+        <script>
+        
+        function mudaImagem(input){
+            var reader = new FileReader();
+            
+            reader.onload = function(e){
+                document.getElementById("foto").src = e.target.result;
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+            
+            
+    }
+            
+        </script>
+        
+        
+        <style>
+            
+              body {
+                  padding-top: 50px;
+                  padding-bottom: 20px;
+              }
+            
+
+              .inicio {
+                  padding: 40px 15px;
+                  text-align: center;
+              }
+        </style>
+        
+    </head>
+    <body>
+        
+        
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Mostrar Navegação</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="index.xhtml">Acervo Colaborativo Digital </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+                    
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="consultar.xhtml" >Buscar um Evento</a></li>
+                <li><a href="../faq.xhtml" >FAQ</a></li>
+            </ul>
+            <form action="cadastrarEvento.xhtml" class="navbar-form navbar-right" role="form">          
+            <button type="submit" class="btn btn-success disabled">Cadastrar Evento</button>
+           
+            
+          </form>
+            
+            <p class="navbar-text navbar-right">Logado como <strong> #{session.getAttribute("nome")} </strong></p>
+
+        </div><!--/.navbar-collapse -->
+      </div>
+    </nav>
+        
+        
+        
+        
+        <div class="inicio">
+            <div class="container">
+            <h:form id="eventoForm" class="form-signin" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <a href="#" class="thumbnail">
+                            <img id="foto" class="img-rounded" data-src="holder.js/300%x180" alt="Imagem" />
+                        </a>
+                    </div>
+                </div>
+                
+                
+                <h:outputLabel value="Titulo: "></h:outputLabel>
+                <h:inputText p:placeholder="Titulo:" class="form-control" value="#{eventoMB.evento.titulo}"></h:inputText>
+                <br/>
+                <h:outputLabel value="Descricao: "> </h:outputLabel>
+                <h:inputTextarea p:placeholder="Seja descritivo sobre a situação, o lugar, e o que representa" 
+                class="form-control"  value="#{eventoMB.evento.descricao}"></h:inputTextarea>
+                <br />
+                <h:outputLabel value="Selecione uma categoria: "></h:outputLabel>
+                <h:selectOneMenu class="form-control" value="#{eventoMB.evento.id_categoria}">
+                    <f:selectItem itemValue="1" itemLabel="Jornais"></f:selectItem>
+                    <f:selectItem itemValue="2" itemLabel="Fotos"></f:selectItem>
+                </h:selectOneMenu>
+                <br/>
+                <h:outputLabel value="Local: "></h:outputLabel>
+                <h:inputText class="form-control" p:placeholder="Local onde isso aconteceu" value="#{eventoMB.evento.local}"></h:inputText>
+                <br/>
+                <h:outputLabel value="Hashtag: "></h:outputLabel>
+                <h:inputText  class="form-control" p:placeholder="Descreva separado por virgulas" value="#{eventoMB.evento.hashtag}"></h:inputText>
+                <br/>
+                <h:outputLabel value="URL Foto: "></h:outputLabel>
+                <h:inputFile class="form-control" value="#{eventoMB.uploadedFile}" onchange="mudaImagem(this);"></h:inputFile>
+                <p class="help-block">Selecione imagens de boa qualidade.</p>
+
+                <br/>
+                <h:commandButton class="btn btn-primary btn-lg btn-block" value="Salvar" action="#{eventoMB.cadastrar()}" ></h:commandButton>
+                <br /><br />
+                <h:link class="text-center" outcome="index.xhtml" value="Entrou aqui sem querer? Clique aqui para voltar"></h:link>
+                
+            </h:form>
+            
+            </div>
+               
+
+        </div>
+    </body>
+</html>
